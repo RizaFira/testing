@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artchain TikTok Integration Demo</title>
+  <style>
+    body { font-family: sans-serif; max-width: 700px; margin: 40px auto; line-height: 1.6; }
+    h1 { color: #111; }
+    code { background: #f4f4f4; padding: 3px 6px; border-radius: 4px; }
+    .step { margin-bottom: 20px; border-left: 4px solid #f00; padding-left: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Artchain TikTok Integration (Demo)</h1>
+  <p>This mock walkthrough demonstrates how Artchain integrates TikTok's Login Kit and Content Posting API for automated video uploads.</p>
+
+  <div class="step">
+    <h2>Step 1: User Login</h2>
+    <p>User clicks <b>“Connect TikTok”</b>, triggering TikTok OAuth Login via <code>Login Kit</code>. The app requests permissions for <code>user.info.basic</code>, <code>video.upload</code>, and <code>video.publish</code>.</p>
+    <img src="https://i.imgur.com/ovWxJ2y.png" alt="Login screen placeholder" width="100%">
+  </div>
+
+  <div class="step">
+    <h2>Step 2: Token Received</h2>
+    <p>After login, Artchain receives an access token, stored securely on the backend. This token authorizes future uploads.</p>
+    <pre>{
+  "access_token": "mock_tiktok_token_123",
+  "scope": "video.upload,video.publish"
+}</pre>
+  </div>
+
+  <div class="step">
+    <h2>Step 3: Video Upload</h2>
+    <p>Using TikTok's <code>/video/upload/</code> and <code>/video/publish/</code> APIs, the user’s video file is uploaded from Artchain servers.</p>
+    <pre>{
+  "status": "success",
+  "video_id": "1234567890"
+}</pre>
+  </div>
+
+  <div class="step">
+    <h2>Step 4: Confirmation</h2>
+    <p>The app receives a webhook callback confirming that the video was successfully published to TikTok.</p>
+    <pre>{
+  "event": "video.publish.success",
+  "video_id": "1234567890"
+}</pre>
+  </div>
+
+  <p><b>Environment:</b> Sandbox testing only.</p>
+</body>
+</html>
